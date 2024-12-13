@@ -6,13 +6,16 @@ public class Pokemon
     private int Level;
     private int Health;
     private int Strength;
+    private string Type;
+    private bool hasAttacked = false;
 
-    public Pokemon(string name, int level, int health, int strength)
+    public Pokemon(string name, int level, int health, int strength, string type)
     {
         Name = name;
         Level = level;
         Health = health;
         Strength = strength;
+        Type = type;
     }
 
     public string getName()
@@ -46,8 +49,23 @@ public class Pokemon
         return Strength;
     }
 
-    public void Attack(Pokemon Oponent)
+    public void Attacked(Pokemon oponent)
     {
+        Health -= oponent.getStrength();
+    }
 
+    public string getType()
+    {
+        return Type;
+    }
+
+    public bool getHasAttacked()
+    {
+        return hasAttacked;
+    }
+
+    public void setHasAttacked(bool x)
+    {
+        hasAttacked = x;
     }
 }

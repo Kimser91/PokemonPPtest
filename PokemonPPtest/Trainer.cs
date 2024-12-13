@@ -4,11 +4,12 @@ public class Trainer
 {
     List<Item> PersonalInventory = new List<Item>();
     List<Pokemon> myPokemons = new List<Pokemon>();
+    private Pokemon chosenPokemon;
     List<Pokemon> PokeDex = new List<Pokemon>();
 
     private string Name;
     private int Age;
-
+    private string Terrain;
     public Trainer(string name, int age)
     {
         Name = name;
@@ -70,6 +71,26 @@ public class Trainer
         {
             PokeDex.Add(pokemon);
         }
+    }
+
+    public string getTerrain()
+    {
+        return Terrain;
+    }
+
+    public void setTerrain(string terrain)
+    {
+        Terrain = terrain;
+    }
+
+    public void setChosenPokemon(int index)
+    {
+        chosenPokemon = myPokemons[index];
+    }
+
+    public Pokemon GetChosenPokemon()
+    {
+        return chosenPokemon;
     }
 
 }
