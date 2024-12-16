@@ -1,33 +1,34 @@
-﻿using System.ComponentModel.Design;
-using System.Linq;
-
-namespace PokemonPPtest;
+﻿namespace PokemonPPtest;
 
 public class World
 {
-    private PokemonManager prog = new PokemonManager();
-    private Random Rand = new Random();
-    List<Pokemon> StartPokemonSelection = new List<Pokemon>()
+    private readonly BattleArena Battle = new();
+
+    private readonly Trainer CurrentTrainer = new("", 0);
+    private Pokemon Oponent;
+    private readonly Random Rand = new();
+    private readonly Pokeshop Shop = new();
+
+    private readonly List<Pokemon> StartPokemonSelection = new()
     {
         new Pokemon("Pika", 3, 210, 60, "Electric"),
         new Pokemon("Bulba", 4, 150, 22, "Grass"),
         new Pokemon("Charmander", 1, 70, 32, "Fire")
     };
 
-    private string[] Terrain = new[] { "Grass", "Mud", "Water", "Stone" }; 
+    private readonly string[] Terrain = new[] { "Grass", "Mud", "Water", "Stone" };
+    private readonly PokemonManager WildPokemons = new();
 
-    private Trainer CurrentTrainer = new Trainer("", 0);
-    private Pokemon Oponent;
     public void StartScreen()
     {
         Console.WriteLine("Welcome new trainer What is your Name");
         Console.Write("My name is: ");
-        string newName = Console.ReadLine();
-        CurrentTrainer.setName(newName);
+        var newName = Console.ReadLine();
+        CurrentTrainer.SetName(newName);
         Console.WriteLine("How old are you?");
-        int newAge = int.Parse(Console.ReadLine());
-        CurrentTrainer.setAge(newAge);
-        Console.WriteLine($"Welcome {CurrentTrainer.getName()} only {CurrentTrainer.getAge()} Years old!!");
+        var newAge = int.Parse(Console.ReadLine());
+        CurrentTrainer.SetAge(newAge);
+        Console.WriteLine($"Welcome {CurrentTrainer.GetName()} only {CurrentTrainer.GetAge()} Years old!!");
         Console.WriteLine("now you get to choose your first pokemon!");
         PrintStartPokemon();
     }
@@ -40,11 +41,11 @@ public class World
             Console.WriteLine("Where Do you want to go?");
             Console.WriteLine("1. Pokeshop");
             Console.WriteLine("2. Wilderness");
-            string input = Console.ReadLine();
+            var input = Console.ReadLine();
             switch (input)
             {
                 case "1":
-                    //EnterPokeshop();
+                    Shop.TheShop(CurrentTrainer);
                     break;
                 case "2":
                     ChooseTerrain();
@@ -54,22 +55,22 @@ public class World
                     break;
             }
         }
-
     }
 
     public void PrintStartPokemon()
     {
-        for (int i = 0; i < StartPokemonSelection.Count; i++)
+        for (var i = 0; i < StartPokemonSelection.Count; i++)
         {
-            int num = i + 1;
-            Console.WriteLine($"{num} Name: {StartPokemonSelection[i].getName()} Level: {StartPokemonSelection[i].getLevel()}");
+            var num = i + 1;
+            Console.WriteLine(
+                $"{num} Name: {StartPokemonSelection[i].GetName()} Level: {StartPokemonSelection[i].GetLevel()}");
         }
 
         Console.WriteLine("what pokemon do you want? use the number:");
-        int input = int.Parse(Console.ReadLine());
-        int choise = input - 1;
-        CurrentTrainer.addPokemon(StartPokemonSelection[choise]);
-        CurrentTrainer.setChosenPokemon(0);
+        var input = int.Parse(Console.ReadLine());
+        var choise = input - 1;
+        CurrentTrainer.AddPokemon(StartPokemonSelection[choise]);
+        CurrentTrainer.SetChosenPokemon(0);
         MainMenu();
     }
 
@@ -80,89 +81,52 @@ public class World
         Console.WriteLine("2. Mud Terrain");
         Console.WriteLine("3. Water Terrain");
         Console.WriteLine("4. Mountain Terrain");
-        int index = int.Parse(Console.ReadLine()) - 1;
+        var index = int.Parse(Console.ReadLine()) - 1;
 
-        CurrentTrainer.setTerrain(Terrain[index]);
-        lookForPokemon();
+        CurrentTrainer.SetTerrain(Terrain[index]);
+        LookForPokemon();
     }
 
-    public int getRandomPokemon()
+    public int GetRandomPokemon()
     {
-        List<Pokemon> WildPokemon = prog.GetList();
-        int i = Rand.Next(0, WildPokemon.Count);
+        List<Pokemon> WildPokemon = WildPokemons.GetList();
+        var i = Rand.Next(0, WildPokemon.Count);
 
         return i;
     }
 
-    public void lookForPokemon()
+    public void LookForPokemon()
     {
-        List<Pokemon> WildPokemon = prog.GetList();
+        List<Pokemon> WildPokemon = WildPokemons.GetList();
 
 
-
-        bool match = false;
-        while(match == false)
+        var match = false;
+        while (match == false)
         {
-            getRandomPokemon();
-            if (CurrentTrainer.getTerrain() == WildPokemon[getRandomPokemon()].getType())
+            GetRandomPokemon();
+            if (CurrentTrainer.GetTerrain() == WildPokemon[GetRandomPokemon()].GetType())
             {
-                Oponent = WildPokemon[getRandomPokemon()];
+                Oponent = WildPokemon[GetRandomPokemon()];
                 match = true;
-                BattleInWilderness();
-
-            }
-            }
-
-    }
-
-    public void BattleInWilderness()
-    {
-        List<Item> inventory = CurrentTrainer.getList();
-        bool alive = true;
-        while (alive)
-        {
-            if (CurrentTrainer.GetChosenPokemon().getHasAttacked() == false)
-            {
-                if (CurrentTrainer.GetChosenPokemon().getHealth() > 1)
+                Console.WriteLine(
+                    $"Your oponent id {Oponent.GetName()} and is Level {Oponent.GetLevel()}, Strength {Oponent.GetStrength()}");
+                Console.WriteLine("What type of Battle do you want?");
+                Console.WriteLine("1. Auto Battle");
+                Console.WriteLine("2. Maunal Battle");
+                Console.WriteLine("3. Flee");
+                var input = Console.ReadLine();
+                switch (input)
                 {
-                    Oponent.Attacked(CurrentTrainer.GetChosenPokemon());
-                    CurrentTrainer.GetChosenPokemon().setHasAttacked(true);
-                    Oponent.setHasAttacked(false);
-                    Console.WriteLine($"{CurrentTrainer.GetChosenPokemon().getName()} {CurrentTrainer.GetChosenPokemon().getHealth()}");
+                    case "1":
+                        Battle.AutoBattleInWilderness(CurrentTrainer, Oponent);
+                        break;
+                    case "2":
+                        Battle.ManualBattleInWilderness(CurrentTrainer, Oponent);
+                        break;
+                    default:
+                        return;
                 }
-                else
-                {
-                    Console.WriteLine($"{Oponent.getName()} Has Won!");
-                    Console.WriteLine($"{CurrentTrainer.GetChosenPokemon().getName()} is unconcius");
-                    alive = false;
-                }
-            }
-
-            else if (Oponent.getHasAttacked() == false)
-            {
-                if (Oponent.getHealth() > 1)
-                {
-                    CurrentTrainer.GetChosenPokemon().Attacked(Oponent);
-                    CurrentTrainer.GetChosenPokemon().setHasAttacked(false);
-                    Oponent.setHasAttacked(true);
-                    Console.WriteLine($"{Oponent.getName()} {Oponent.getHealth()}");
-                }
-                else
-                {
-                    Console.WriteLine($"{CurrentTrainer.GetChosenPokemon().getName()} Has Won!");
-                    Console.WriteLine($"{Oponent.getName()} is unconcius");
-                    Console.WriteLine("Do You Want To Catch It? Y/N");
-                    string Ans = Console.ReadLine().ToUpper();
-                    if (Ans == "Y")
-                    {
-                        CurrentTrainer.addPokemon(Oponent);
-                    }
-
-                    alive = false;
-                }
-
             }
         }
     }
 }
-

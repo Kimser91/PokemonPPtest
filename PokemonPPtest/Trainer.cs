@@ -2,88 +2,91 @@
 
 public class Trainer
 {
-    List<Item> PersonalInventory = new List<Item>();
-    List<Pokemon> myPokemons = new List<Pokemon>();
+    private readonly List<Pokemon> myPokemons = new();
+    private readonly List<Item> PersonalInventory = new();
+    private readonly List<Pokemon> PokeDex = new();
+    private int Age;
+    private int Cash = 1000;
     private Pokemon chosenPokemon;
-    List<Pokemon> PokeDex = new List<Pokemon>();
 
     private string Name;
-    private int Age;
     private string Terrain;
+
     public Trainer(string name, int age)
     {
         Name = name;
         Age = age;
-
     }
 
 
-
-
-
-    //Trainer:
-
-    public List<Item> getList()
+    public List<Item> GetList()
     {
         return PersonalInventory;
     }
 
-    public List<Pokemon> getPokemons()
+    public void AddToInventory(Item newItem)
+    {
+        PersonalInventory.Add(newItem);
+    }
+
+    public void RemoveFromInventory(Item UseItem)
+    {
+        PersonalInventory.Remove(UseItem);
+    }
+
+    public List<Pokemon> GetPokemons()
     {
         return myPokemons;
     }
-    public int getAge()
+
+    public int GetAge()
     {
         return Age;
     }
 
-    public void setAge(int newAge)
+    public void SetAge(int newAge)
     {
         Age = newAge;
     }
 
-    public string getName()
+    public string GetName()
     {
         return Name;
     }
 
-    public void setName(string newName)
+    public void SetName(string newName)
     {
         Name = newName;
     }
 
 
-    public void addPokemon(Pokemon pokemon)
+    public void AddPokemon(Pokemon pokemon)
     {
         myPokemons.Add(pokemon);
     }
 
 
-    // Pokedex:
-
-    public List<Pokemon> getPokedex()
+    public List<Pokemon> GetPokedex()
     {
         return PokeDex;
     }
-    public void addToPokedex(Pokemon pokemon)
+
+    public void AddToPokedex(Pokemon pokemon)
     {
-        if (!PokeDex.Contains(pokemon))
-        {
-            PokeDex.Add(pokemon);
-        }
+        if (!PokeDex.Contains(pokemon)) PokeDex.Add(pokemon);
     }
 
-    public string getTerrain()
+    public string GetTerrain()
     {
         return Terrain;
     }
 
-    public void setTerrain(string terrain)
+    public void SetTerrain(string terrain)
     {
         Terrain = terrain;
     }
 
-    public void setChosenPokemon(int index)
+    public void SetChosenPokemon(int index)
     {
         chosenPokemon = myPokemons[index];
     }
@@ -93,4 +96,34 @@ public class Trainer
         return chosenPokemon;
     }
 
+    public int GetCash()
+    {
+        return Cash;
+    }
+
+    public void SetCash(int adjustment)
+    {
+        Cash = adjustment;
+    }
+
+    public void HealMyPokemon()
+    {
+        var Healed = false;
+        foreach (var item in PersonalInventory)
+            if (item.GetName() == "Health Potion" && Healed == false)
+            {
+                chosenPokemon.GetHealth(100);
+                Healed = true;
+            }
+
+        if (Healed)
+        {
+            Console.WriteLine("You have successfully healed " + chosenPokemon.GetName());
+            Console.WriteLine("Health is now: " + chosenPokemon.GetHealth());
+        }
+        else
+        {
+            Console.WriteLine("You do not have any Health Potions left.");
+        }
+    }
 }

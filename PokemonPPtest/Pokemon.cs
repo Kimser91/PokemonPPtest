@@ -2,12 +2,13 @@
 
 public class Pokemon
 {
-    private string Name;
-    private int Level;
+    private int Exp;
+    private bool hasAttacked;
     private int Health;
-    private int Strength;
-    private string Type;
-    private bool hasAttacked = false;
+    private int Level;
+    private readonly string Name;
+    private readonly int Strength;
+    private readonly string Type;
 
     public Pokemon(string name, int level, int health, int strength, string type)
     {
@@ -18,54 +19,63 @@ public class Pokemon
         Type = type;
     }
 
-    public string getName()
+    public string GetName()
     {
         return Name;
     }
 
-    public int getLevel()
+    public int GetLevel()
     {
         return Level;
-            
     }
 
-    public void setLevel(int LevelUp)
+    public void SetLevel(int LevelUp)
     {
         Level = LevelUp;
     }
 
-    public int getHealth()
+    public int GetHealth()
     {
         return Health;
     }
 
-    public void setHealth(int Healing)
+    public void GetHealth(int Healing)
     {
         Health = Healing;
     }
 
-    public int getStrength()
+    public int GetStrength()
     {
         return Strength;
     }
 
     public void Attacked(Pokemon oponent)
     {
-        Health -= oponent.getStrength();
+        Health -= oponent.GetStrength();
     }
 
-    public string getType()
+    public string GetType()
     {
         return Type;
     }
 
-    public bool getHasAttacked()
+    public bool GetHasAttacked()
     {
         return hasAttacked;
     }
 
-    public void setHasAttacked(bool x)
+    public void SetHasAttacked(bool x)
     {
         hasAttacked = x;
+    }
+
+    public int GetExp()
+    {
+        return Exp;
+    }
+
+    public void SetExp(int exp)
+    {
+        Exp = exp;
     }
 }
