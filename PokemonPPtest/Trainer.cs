@@ -113,6 +113,7 @@ public class Trainer
             if (item.GetName() == "Health Potion" && Healed == false)
             {
                 chosenPokemon.GetHealth(100);
+                RemoveFromInventory(item);
                 Healed = true;
             }
 
