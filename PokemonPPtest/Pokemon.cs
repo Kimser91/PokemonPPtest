@@ -39,9 +39,9 @@ public class Pokemon
         return Health;
     }
 
-    public void GetHealth(int Healing)
+    public void SetHealth(int Healing)
     {
-        Health = Healing;
+        Health += Healing;
     }
 
     public int GetStrength()

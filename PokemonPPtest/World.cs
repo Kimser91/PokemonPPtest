@@ -5,7 +5,7 @@ public class World
     private readonly BattleArena Battle = new();
 
     private readonly Trainer CurrentTrainer = new("", 0);
-    private Pokemon Oponent;
+    private Pokemon Opponent;
     private readonly Random Rand = new();
     private readonly Pokeshop Shop = new();
 
@@ -19,6 +19,10 @@ public class World
     private readonly string[] Terrain = new[] { "Grass", "Mud", "Water", "Stone" };
     private readonly PokemonManager WildPokemons = new();
 
+    public World()
+    {
+        StartScreen();
+    }
     public void StartScreen()
     {
         Console.WriteLine("Welcome new trainer What is your Name");
@@ -41,6 +45,7 @@ public class World
             Console.WriteLine("Where Do you want to go?");
             Console.WriteLine("1. Pokeshop");
             Console.WriteLine("2. Wilderness");
+            Console.WriteLine("3. Heal my Pokemon");
             var input = Console.ReadLine();
             switch (input)
             {
@@ -49,6 +54,9 @@ public class World
                     break;
                 case "2":
                     ChooseTerrain();
+                    break;
+                case "3":
+                    CurrentTrainer.HealMyPokemon();
                     break;
                 default:
                     Environment.Exit(0);
@@ -98,18 +106,18 @@ public class World
     public void LookForPokemon()
     {
         List<Pokemon> WildPokemon = WildPokemons.GetList();
-
-
+        int i = GetRandomPokemon();
+        Console.WriteLine(i);
         var match = false;
         while (match == false)
         {
-            GetRandomPokemon();
-            if (CurrentTrainer.GetTerrain() == WildPokemon[GetRandomPokemon()].GetType())
+            if (CurrentTrainer.GetTerrain() == WildPokemon[i].GetType())
             {
-                Oponent = WildPokemon[GetRandomPokemon()];
+                Opponent = WildPokemon[i];
+                CurrentTrainer.AddToPokedex(WildPokemon[i]);
                 match = true;
                 Console.WriteLine(
-                    $"Your oponent id {Oponent.GetName()} and is Level {Oponent.GetLevel()}, Strength {Oponent.GetStrength()}");
+                    $"Your oponent id {Opponent.GetName()} and is Level {Opponent.GetLevel()}, Strength {Opponent.GetStrength()}");
                 Console.WriteLine("What type of Battle do you want?");
                 Console.WriteLine("1. Auto Battle");
                 Console.WriteLine("2. Maunal Battle");
@@ -118,15 +126,21 @@ public class World
                 switch (input)
                 {
                     case "1":
-                        Battle.AutoBattleInWilderness(CurrentTrainer, Oponent);
+                        Battle.AutoBattleInWilderness(CurrentTrainer, Opponent);
                         break;
                     case "2":
-                        Battle.ManualBattleInWilderness(CurrentTrainer, Oponent);
+                        Battle.ManualBattleInWilderness(CurrentTrainer, Opponent);
                         break;
                     default:
-                        return;
+                        MainMenu();
+                        break;
                 }
             }
+            else
+            {
+                LookForPokemon();
+            }
+
         }
     }
 }

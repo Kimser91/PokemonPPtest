@@ -2,7 +2,7 @@
 
 public class BattleArena
 {
-    public void AutoBattleInWilderness(Trainer CurrentTrainer, Pokemon Oponent)
+    public void AutoBattleInWilderness(Trainer CurrentTrainer, Pokemon Opponent)
     {
         var alive = true;
         while (alive)
@@ -10,43 +10,43 @@ public class BattleArena
             {
                 if (CurrentTrainer.GetChosenPokemon().GetHealth() > 1)
                 {
-                    Oponent.Attacked(CurrentTrainer.GetChosenPokemon());
+                    Opponent.Attacked(CurrentTrainer.GetChosenPokemon());
                     CurrentTrainer.GetChosenPokemon().SetHasAttacked(true);
-                    Oponent.SetHasAttacked(false);
+                    Opponent.SetHasAttacked(false);
                     Console.WriteLine(
                         $"{CurrentTrainer.GetChosenPokemon().GetName()} {CurrentTrainer.GetChosenPokemon().GetHealth()}");
                 }
                 else
                 {
-                    Console.WriteLine($"{Oponent.GetName()} Has Won!");
+                    Console.WriteLine($"{Opponent.GetName()} Has Won!");
                     Console.WriteLine($"{CurrentTrainer.GetChosenPokemon().GetName()} is unconcius");
                     alive = false;
                 }
             }
 
-            else if (Oponent.GetHasAttacked() == false)
+            else if (Opponent.GetHasAttacked() == false)
             {
-                if (Oponent.GetHealth() > 1)
+                if (Opponent.GetHealth() > 1)
                 {
-                    CurrentTrainer.GetChosenPokemon().Attacked(Oponent);
+                    CurrentTrainer.GetChosenPokemon().Attacked(Opponent);
                     CurrentTrainer.GetChosenPokemon().SetHasAttacked(false);
-                    Oponent.SetHasAttacked(true);
-                    Console.WriteLine($"{Oponent.GetName()} {Oponent.GetHealth()}");
+                    Opponent.SetHasAttacked(true);
+                    Console.WriteLine($"{Opponent.GetName()} {Opponent.GetHealth()}");
                 }
                 else
                 {
                     Console.WriteLine($"{CurrentTrainer.GetChosenPokemon().GetName()} Has Won!");
-                    Console.WriteLine($"{Oponent.GetName()} is unconcius");
+                    Console.WriteLine($"{Opponent.GetName()} is unconcius");
                     Console.WriteLine("Do You Want To Catch It? Y/N");
                     var Ans = Console.ReadLine().ToUpper();
-                    if (Ans == "Y") CurrentTrainer.AddPokemon(Oponent);
+                    if (Ans == "Y") CurrentTrainer.AddPokemon(Opponent);
 
                     alive = false;
                 }
             }
     }
 
-    public void ManualBattleInWilderness(Trainer CurrentTrainer, Pokemon Oponent)
+    public void ManualBattleInWilderness(Trainer CurrentTrainer, Pokemon Opponent)
     {
         var alive = true;
 
@@ -66,9 +66,9 @@ public class BattleArena
                     switch (choise)
                     {
                         case "1":
-                            Oponent.Attacked(CurrentTrainer.GetChosenPokemon());
+                            Opponent.Attacked(CurrentTrainer.GetChosenPokemon());
                             CurrentTrainer.GetChosenPokemon().SetHasAttacked(true);
-                            Oponent.SetHasAttacked(false);
+                            Opponent.SetHasAttacked(false);
                             Console.WriteLine(
                                 $"{CurrentTrainer.GetChosenPokemon().GetName()} {CurrentTrainer.GetChosenPokemon().GetHealth()}");
                             break;
@@ -76,7 +76,7 @@ public class BattleArena
                         case "2":
                             CurrentTrainer.HealMyPokemon();
                             CurrentTrainer.GetChosenPokemon().SetHasAttacked(true);
-                            Oponent.SetHasAttacked(false);
+                            Opponent.SetHasAttacked(false);
                             break;
 
                         default:
@@ -85,27 +85,29 @@ public class BattleArena
                 }
                 else
                 {
-                    Console.WriteLine($"{Oponent.GetName()} Has Won!");
+                    Console.WriteLine($"{Opponent.GetName()} Has Won!");
                     Console.WriteLine($"{CurrentTrainer.GetChosenPokemon().GetName()} is unconcius");
+                    alive = false;
                 }
             }
 
-            else if (Oponent.GetHasAttacked() == false)
+            else if (Opponent.GetHasAttacked() == false)
             {
-                if (Oponent.GetHealth() > 1)
+                if (Opponent.GetHealth() > 1)
                 {
-                    CurrentTrainer.GetChosenPokemon().Attacked(Oponent);
+                    CurrentTrainer.GetChosenPokemon().Attacked(Opponent);
                     CurrentTrainer.GetChosenPokemon().SetHasAttacked(false);
-                    Oponent.SetHasAttacked(true);
-                    Console.WriteLine($"{Oponent.GetName()} {Oponent.GetHealth()}");
+                    Opponent.SetHasAttacked(true);
+                    Console.WriteLine($"{Opponent.GetName()} {Opponent.GetHealth()}");
                 }
                 else
                 {
                     Console.WriteLine($"{CurrentTrainer.GetChosenPokemon().GetName()} Has Won!");
-                    Console.WriteLine($"{Oponent.GetName()} is unconcius");
+                    Console.WriteLine($"{Opponent.GetName()} is unconcius");
+                    alive = false;
                     Console.WriteLine("Do You Want To Catch It? Y/N");
                     var Ans = Console.ReadLine().ToUpper();
-                    if (Ans == "Y") CurrentTrainer.AddPokemon(Oponent);
+                    if (Ans == "Y") CurrentTrainer.AddPokemon(Opponent);
                 }
             }
     }

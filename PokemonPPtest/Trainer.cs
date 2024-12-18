@@ -1,10 +1,12 @@
-﻿namespace PokemonPPtest;
+﻿using System.IO.Enumeration;
+
+namespace PokemonPPtest;
 
 public class Trainer
 {
-    private readonly List<Pokemon> myPokemons = new();
-    private readonly List<Item> PersonalInventory = new();
-    private readonly List<Pokemon> PokeDex = new();
+    private  List<Pokemon> myPokemons = new List<Pokemon>();
+    private  List<Item> PersonalInventory = new List<Item>();
+    private  List<Pokemon> PokeDex = new List<Pokemon>();
     private int Age;
     private int Cash = 1000;
     private Pokemon chosenPokemon;
@@ -65,6 +67,11 @@ public class Trainer
         myPokemons.Add(pokemon);
     }
 
+    public void RemovePokemon(Pokemon pokemon)
+    {
+        myPokemons.Remove(pokemon);
+    }
+
 
     public List<Pokemon> GetPokedex()
     {
@@ -73,7 +80,7 @@ public class Trainer
 
     public void AddToPokedex(Pokemon pokemon)
     {
-        if (!PokeDex.Contains(pokemon)) PokeDex.Add(pokemon);
+        if (!PokeDex.Contains(pokemon)){ PokeDex.Add(pokemon);}
     }
 
     public string GetTerrain()
@@ -106,25 +113,32 @@ public class Trainer
         Cash = adjustment;
     }
 
-    public void HealMyPokemon()
+    Item FindHelathPotion()
     {
-        var Healed = false;
         foreach (var item in PersonalInventory)
-            if (item.GetName() == "Health Potion" && Healed == false)
+            if (item.GetName() == "Health Potion")
             {
-                chosenPokemon.GetHealth(100);
-                RemoveFromInventory(item);
-                Healed = true;
+
+                return item;
             }
 
-        if (Healed)
-        {
-            Console.WriteLine("You have successfully healed " + chosenPokemon.GetName());
-            Console.WriteLine("Health is now: " + chosenPokemon.GetHealth());
-        }
-        else
-        {
-            Console.WriteLine("You do not have any Health Potions left.");
-        }
+        return null;
     }
+
+    public void HealMyPokemon()
+    {
+        Item item = FindHelathPotion();
+        if (item != null)
+        {
+            Console.WriteLine(chosenPokemon.GetHealth());
+            chosenPokemon.SetHealth(100);
+            RemoveFromInventory(item);
+            Console.WriteLine(chosenPokemon.GetHealth());
+        }
+
+    }
+
+
+
+ 
 }
