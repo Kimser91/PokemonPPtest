@@ -4,32 +4,35 @@ namespace PokemonPPtest;
 
 public class Pokeshop
 {
+
     private readonly List<Item> inventory = new()
     {
         new Item("Pokeball"),
         new Item("Health Potion", 50)
     };
 
-    private Trainer Customer;
-
-    public void TheShop(Trainer current)
+    private bool shopping;
+    public void TheShop(Trainer current, PokemonManager wildPokemon)
     {
-        Customer = current;
-        var shopping = true;
+        shopping = true;
         while (shopping)
         {
             Console.WriteLine("Welcome to the Pokeshop, what can i get you?");
-            Console.WriteLine("1. Pokleballs");
-            Console.WriteLine("2. Health Potions");
+            Console.WriteLine("1. Buy items");
+            Console.WriteLine("2. Sell Pokemon");
+            Console.WriteLine("3. Buy Pokemon");
             Console.WriteLine("3. Exit Shop");
             var input = int.Parse(Console.ReadLine());
             switch (input)
             {
                 case 1:
-                    BuyItems();
+                    BuyItems(current);
                     break;
                 case 2:
-                    ChoosePokemonToSell();
+                    ChoosePokemonToSell(current);
+                    break;
+                case 3:
+                    BuyPokemon(current, wildPokemon);
                     break;
                 default:
                     shopping = false;
@@ -38,7 +41,30 @@ public class Pokeshop
         }
     }
 
-    void BuyItems()
+    void BuyPokemon(Trainer current, PokemonManager wildPokemon)
+    {
+        List<Pokemon> Wild = wildPokemon.GetList();
+        foreach (var pokemon in Wild)
+        {
+            if (pokemon.GetLevel() < 6)
+            {
+                Console.WriteLine();
+                Console.WriteLine($"ID: {Wild.IndexOf(pokemon)} Name: {pokemon.GetName()}, Level: {pokemon.GetLevel()}, Strength: {pokemon.GetStrength()} Price: {pokemon.GetLevel() * 300}");
+                Console.WriteLine();
+
+            }
+        }
+
+        Console.WriteLine("Who do you want to buy? Choose by ID");
+        int choice = int.Parse(Console.ReadLine());
+        current.AddPokemon(Wild[choice]);
+        current.PrintPokemon();
+        current.SetCash(current.GetCash() - Wild[choice].GetLevel()*300);
+        Console.WriteLine(current.GetCash());
+
+    }
+
+    void BuyItems(Trainer current)
     {
         Console.WriteLine("1. Pokleballs");
         Console.WriteLine("2. Health Potions");
@@ -47,29 +73,29 @@ public class Pokeshop
         switch (input)
         {
             case 1:
-                Customer.AddToInventory(inventory[input - 1]);
-                Customer.SetCash(Customer.GetCash() - inventory[input - 1].GetPrice());
+                current.AddToInventory(inventory[input - 1]);
+                current.SetCash(current.GetCash() - inventory[input - 1].GetPrice());
                 Console.WriteLine(
-                    $"You bought: {Customer.GetList().Last().GetName()}. You now have {Customer.GetCash()} left.");
+                    $"You bought: {current.GetList().Last().GetName()}. You now have {current.GetCash()} left.");
                 break;
             case 2:
-                Customer.AddToInventory(inventory[input - 1]);
-                Customer.SetCash(Customer.GetCash() - inventory[input - 1].GetPrice());
+                current.AddToInventory(inventory[input - 1]);
+                current.SetCash(current.GetCash() - inventory[input - 1].GetPrice());
                 Console.WriteLine(
-                    $"You bought: {Customer.GetList().Last().GetName()}. You now have {Customer.GetCash()} left.");
+                    $"You bought: {current.GetList().Last().GetName()}. You now have {current.GetCash()} left.");
                 break;
         }
 
     }
 
-    void ChoosePokemonToSell()
+    void ChoosePokemonToSell(Trainer current)
     {
-       List<Pokemon> sellabelList = Customer.GetPokemons();
-        int i = 1;
-       foreach (var pokemon in sellabelList)
+       ;
+        
+       for (int i =1; i < current.GetPokemons().Count; i++)
        {
            Console.WriteLine();
-           Console.WriteLine($"{i}: Name: {pokemon.GetName()}, Level: {pokemon.GetLevel()}, Strength: {pokemon.GetStrength()}");
+           Console.WriteLine($"{i}: Name: {current.GetPokemons()[i].GetName()}, Level: {current.GetPokemons()[i].GetLevel()}, Strength: {current.GetPokemons()[i].GetStrength()}");
            Console.WriteLine();
            i++;
        }
@@ -80,8 +106,8 @@ public class Pokeshop
        {
            Console.WriteLine("Who do you want to sell?");
            int index = int.Parse(Console.ReadLine()) - 1;
-           SellPokemon(sellabelList[index]);
-        }
+           SellPokemon(current, index);
+       }
 
        else
        {
@@ -90,20 +116,31 @@ public class Pokeshop
 
     }
 
-    void SellPokemon(Pokemon pokemon)
+    void SellPokemon(Trainer current, int index)
     {
-        int salePrice = pokemon.GetLevel() * 100;
+        
+        int salePrice = current.GetPokemons()[index].GetLevel() * 100;
         Console.WriteLine($"Your pokemon is worth: {salePrice}");
         Console.WriteLine("Do you want to sell? Y/N");
         var Ans = Console.ReadLine().ToUpper();
         if (Ans == "Y")
         {
-            Customer.RemovePokemon(pokemon);
+            current.RemovePokemon(current.GetPokemons()[index]);
+            current.SetCash(current.GetCash() + current.GetPokemons()[index].GetLevel() * 100);
+            Console.WriteLine(current.GetCash());
         }
         else
         {
             Console.WriteLine("Do you want to Choose another instead? Y/N");
-
+           Ans = Console.ReadLine();
+           if (Ans == "Y")
+           {
+               ChoosePokemonToSell(current); 
+           }
+           else
+           {
+               return;
+           }
         }
     }
 }

@@ -2,22 +2,22 @@
 
 public class World
 {
-    private readonly BattleArena Battle = new();
+    private BattleArena Battle = new();
 
-    private readonly Trainer CurrentTrainer = new("", 0);
+    private Trainer CurrentTrainer = new("", 0);
     private Pokemon Opponent;
-    private readonly Random Rand = new();
-    private readonly Pokeshop Shop = new();
+    private Random Rand = new();
+    private Pokeshop Shop = new();
 
-    private readonly List<Pokemon> StartPokemonSelection = new()
+    private  List<Pokemon> StartPokemonSelection = new()
     {
         new Pokemon("Pika", 3, 210, 60, "Electric"),
         new Pokemon("Bulba", 4, 150, 22, "Grass"),
         new Pokemon("Charmander", 1, 70, 32, "Fire")
     };
 
-    private readonly string[] Terrain = new[] { "Grass", "Mud", "Water", "Stone" };
-    private readonly PokemonManager WildPokemons = new();
+    private string[] Terrain = new[] { "Grass", "Mud", "Water", "Stone" };
+    private PokemonManager WildPokemons = new();
 
     public World()
     {
@@ -50,7 +50,7 @@ public class World
             switch (input)
             {
                 case "1":
-                    Shop.TheShop(CurrentTrainer);
+                    Shop.TheShop(CurrentTrainer, WildPokemons);
                     break;
                 case "2":
                     ChooseTerrain();
@@ -143,4 +143,6 @@ public class World
 
         }
     }
+
+
 }

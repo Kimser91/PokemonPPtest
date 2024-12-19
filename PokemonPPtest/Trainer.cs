@@ -4,13 +4,14 @@ namespace PokemonPPtest;
 
 public class Trainer
 {
+    
     private  List<Pokemon> myPokemons = new List<Pokemon>();
     private  List<Item> PersonalInventory = new List<Item>();
     private  List<Pokemon> PokeDex = new List<Pokemon>();
     private int Age;
     private int Cash = 1000;
     private Pokemon chosenPokemon;
-
+    private int index = 0;
     private string Name;
     private string Terrain;
 
@@ -39,6 +40,16 @@ public class Trainer
     public List<Pokemon> GetPokemons()
     {
         return myPokemons;
+    }
+
+    public void PrintPokemon()
+    {
+        foreach (var pokemon in myPokemons)
+        {
+            Console.WriteLine();
+            Console.WriteLine(pokemon.GetName());
+            Console.WriteLine();
+        }
     }
 
     public int GetAge()
@@ -100,7 +111,7 @@ public class Trainer
 
     public Pokemon GetChosenPokemon()
     {
-        return chosenPokemon;
+            return chosenPokemon;
     }
 
     public int GetCash()
