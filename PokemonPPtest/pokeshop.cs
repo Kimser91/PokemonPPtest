@@ -12,8 +12,10 @@ public class Pokeshop
     };
 
     private bool shopping;
+
     public void TheShop(Trainer current, PokemonManager wildPokemon)
     {
+        
         shopping = true;
         while (shopping)
         {
@@ -43,23 +45,21 @@ public class Pokeshop
 
     void BuyPokemon(Trainer current, PokemonManager wildPokemon)
     {
-        List<Pokemon> Wild = wildPokemon.GetList();
-        foreach (var pokemon in Wild)
+        foreach (var pokemon in wildPokemon.GetList())
         {
             if (pokemon.GetLevel() < 6)
             {
-                Console.WriteLine();
-                Console.WriteLine($"ID: {Wild.IndexOf(pokemon)} Name: {pokemon.GetName()}, Level: {pokemon.GetLevel()}, Strength: {pokemon.GetStrength()} Price: {pokemon.GetLevel() * 300}");
-                Console.WriteLine();
+                
+                pokemon.PrintInfo(wildPokemon.GetList().IndexOf(pokemon), 300);
 
             }
         }
 
         Console.WriteLine("Who do you want to buy? Choose by ID");
         int choice = int.Parse(Console.ReadLine());
-        current.AddPokemon(Wild[choice]);
+        current.AddPokemon(wildPokemon.GetList()[choice]);
         current.PrintPokemon();
-        current.SetCash(current.GetCash() - Wild[choice].GetLevel()*300);
+        current.SetCash(current.GetCash() - wildPokemon.GetList()[choice].GetLevel()*300);
         Console.WriteLine(current.GetCash());
 
     }

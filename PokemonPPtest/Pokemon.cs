@@ -78,4 +78,22 @@ public class Pokemon
     {
         Exp = exp;
     }
+    public void PrintInfo()
+    {
+        Console.WriteLine($"Name: {Name}, Level: {Level}, Strength: {Strength}");
+    }
+    public void PrintInfo(int ID)
+    {
+        Console.Write($"ID: {ID} ");
+        PrintInfo();
+    }
+
+    public void PrintInfo(int ID, int Price)
+    {
+        PrintInfo(ID);
+        Console.WriteLine($"Price: {Level * Price}");
+        Console.WriteLine();
+    }
+
 }
+

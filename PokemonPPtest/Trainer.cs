@@ -59,7 +59,7 @@ public class Trainer
 
     public void SetAge(int newAge)
     {
-        Age = newAge;
+        Age = newAge ;
     }
 
     public string GetName()
