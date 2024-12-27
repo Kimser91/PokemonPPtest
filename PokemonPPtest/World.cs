@@ -1,4 +1,6 @@
-﻿namespace PokemonPPtest;
+﻿using Newtonsoft.Json;
+
+namespace PokemonPPtest;
 
 public class World
 {
@@ -15,13 +17,27 @@ public class World
         new Pokemon("Bulba", 4, 150, 22, "Grass"),
         new Pokemon("Charmander", 1, 70, 32, "Fire")
     };
-
-    private string[] Terrain = new[] { "Grass", "Mud", "Water", "Stone" };
-    private PokemonManager WildPokemons = new();
+    private string[] Terrain = new[] { "Grass", "Ground", "Water", "Rock" };
+    List<Pokemon> WildPokemons = new List<Pokemon>();
 
     public World()
     {
+        setList();
         StartScreen();
+    }
+
+    public void setList() 
+    {
+        string FilePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Pokemons.json");  
+    string json = File.ReadAllText(FilePath);
+    var data = JsonConvert.DeserializeObject<PokemonManager>(json);
+        if (data != null && data.WildPokemons != null) {
+            foreach (Pokemon pokemon in data.WildPokemons)
+            {
+                WildPokemons.Add(pokemon);
+            }
+        }
+        
     }
     public void StartScreen()
     {
@@ -86,7 +102,7 @@ public class World
     {
         Console.WriteLine("Where do you want to go?");
         Console.WriteLine("1. Grass Terrain");
-        Console.WriteLine("2. Mud Terrain");
+        Console.WriteLine("2. Ground Terrain");
         Console.WriteLine("3. Water Terrain");
         Console.WriteLine("4. Mountain Terrain");
         var index = int.Parse(Console.ReadLine()) - 1;
@@ -97,24 +113,23 @@ public class World
 
     public int GetRandomPokemon()
     {
-        List<Pokemon> WildPokemon = WildPokemons.GetList();
-        var i = Rand.Next(0, WildPokemon.Count);
+       
+        var i = Rand.Next(0, WildPokemons.Count);
 
         return i;
     }
 
     public void LookForPokemon()
     {
-        List<Pokemon> WildPokemon = WildPokemons.GetList();
+       
         int i = GetRandomPokemon();
-        Console.WriteLine(i);
         var match = false;
         while (match == false)
         {
-            if (CurrentTrainer.GetTerrain() == WildPokemon[i].GetType())
+            if (CurrentTrainer.GetTerrain() == WildPokemons[i].GetType())
             {
-                Opponent = WildPokemon[i];
-                CurrentTrainer.AddToPokedex(WildPokemon[i]);
+                Opponent = WildPokemons[i];
+                CurrentTrainer.AddToPokedex(WildPokemons[i]);
                 match = true;
                 Console.WriteLine(
                     $"Your oponent id {Opponent.GetName()} and is Level {Opponent.GetLevel()}, Strength {Opponent.GetStrength()}");

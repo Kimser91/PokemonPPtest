@@ -13,7 +13,7 @@ public class Pokeshop
 
     private bool shopping;
 
-    public void TheShop(Trainer current, PokemonManager wildPokemon)
+    public void TheShop(Trainer current, List<Pokemon> wildPokemon)
     {
         
         shopping = true;
@@ -23,17 +23,17 @@ public class Pokeshop
             Console.WriteLine("1. Buy items");
             Console.WriteLine("2. Sell Pokemon");
             Console.WriteLine("3. Buy Pokemon");
-            Console.WriteLine("3. Exit Shop");
-            var input = int.Parse(Console.ReadLine());
+            Console.WriteLine("4. Exit Shop");
+            var input =Console.ReadLine();
             switch (input)
             {
-                case 1:
+                case "1":
                     BuyItems(current);
                     break;
-                case 2:
+                case "2":
                     ChoosePokemonToSell(current);
                     break;
-                case 3:
+                case "3":
                     BuyPokemon(current, wildPokemon);
                     break;
                 default:
@@ -43,23 +43,23 @@ public class Pokeshop
         }
     }
 
-    void BuyPokemon(Trainer current, PokemonManager wildPokemon)
+    void BuyPokemon(Trainer current, List<Pokemon> wildPokemon)
     {
-        foreach (var pokemon in wildPokemon.GetList())
+        foreach (var pokemon in wildPokemon)
         {
             if (pokemon.GetLevel() < 6)
             {
                 
-                pokemon.PrintInfo(wildPokemon.GetList().IndexOf(pokemon), 300);
+                pokemon.PrintInfo(wildPokemon.IndexOf(pokemon), 300);
 
             }
         }
 
         Console.WriteLine("Who do you want to buy? Choose by ID");
         int choice = int.Parse(Console.ReadLine());
-        current.AddPokemon(wildPokemon.GetList()[choice]);
+        current.AddPokemon(wildPokemon[choice]);
         current.PrintPokemon();
-        current.SetCash(current.GetCash() - wildPokemon.GetList()[choice].GetLevel()*300);
+        current.SetCash(current.GetCash() - wildPokemon[choice].GetLevel()*300);
         Console.WriteLine(current.GetCash());
 
     }

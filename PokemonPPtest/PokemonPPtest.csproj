@@ -7,4 +7,26 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EditorConfigFiles Remove="E:\ReStartItC#\PokemonPPtest\PokemonPPtest\.editorconfig" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Remove="Pokemons.json" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="E:\ReStartItC#\PokemonPPtest\PokemonPPtest\.editorconfig" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="Pokemons.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+
 </Project>

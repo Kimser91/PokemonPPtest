@@ -2,7 +2,7 @@
 
 public class PokemonManager
 {
-    private readonly List<Pokemon> WildPokemons = new()
+   /* private readonly List<Pokemon> WildPokemons = new()
     {
         // Grass Type
         new Pokemon("Bulbasaur", 5, 150, 25, "Grass"),
@@ -57,10 +57,11 @@ public class PokemonManager
         new Pokemon("Rhyhorn", 8, 250, 30, "Rock"),
         new Pokemon("Rhydon", 18, 450, 50, "Rock"),
         new Pokemon("Sudowoodo", 15, 350, 45, "Rock")
-    };
+    };*/
 
-    public List<Pokemon> GetList()
+    public List<Pokemon> WildPokemons { get; set; }
+    /*public List<Pokemon> GetList()
     {
         return WildPokemons;
-    }
+    }*/
 }

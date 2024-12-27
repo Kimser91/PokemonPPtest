@@ -1,0 +1,326 @@
+{
+  "WildPokemons": [
+    {
+      "name": "Bulbasaur",
+      "level": 5,
+      "health": 150,
+      "attack": 25,
+      "type": "Grass"
+    },
+    {
+      "name": "Ivysaur",
+      "level": 10,
+      "health": 250,
+      "attack": 35,
+      "type": "Grass"
+    },
+    {
+      "name": "Venusaur",
+      "level": 20,
+      "health": 400,
+      "attack": 50,
+      "type": "Grass"
+    },
+    {
+      "name": "Oddish",
+      "level": 3,
+      "health": 100,
+      "attack": 15,
+      "type": "Grass"
+    },
+    {
+      "name": "Gloom",
+      "level": 8,
+      "health": 200,
+      "attack": 25,
+      "type": "Grass"
+    },
+    {
+      "name": "Vileplume",
+      "level": 15,
+      "health": 350,
+      "attack": 40,
+      "type": "Grass"
+    },
+    {
+      "name": "Bellsprout",
+      "level": 4,
+      "health": 120,
+      "attack": 20,
+      "type": "Grass"
+    },
+    {
+      "name": "Weepinbell",
+      "level": 9,
+      "health": 220,
+      "attack": 30,
+      "type": "Grass"
+    },
+    {
+      "name": "Victreebel",
+      "level": 18,
+      "health": 380,
+      "attack": 45,
+      "type": "Grass"
+    },
+    {
+      "name": "Sandshrew",
+      "level": 6,
+      "health": 180,
+      "attack": 20,
+      "type": "Ground"
+    },
+    {
+      "name": "Sandslash",
+      "level": 12,
+      "health": 300,
+      "attack": 40,
+      "type": "Ground"
+    },
+    {
+      "name": "Diglett",
+      "level": 3,
+      "health": 100,
+      "attack": 15,
+      "type": "Ground"
+    },
+    {
+      "name": "Dugtrio",
+      "level": 10,
+      "health": 250,
+      "attack": 35,
+      "type": "Ground"
+    },
+    {
+      "name": "Cubone",
+      "level": 5,
+      "health": 160,
+      "attack": 20,
+      "type": "Ground"
+    },
+    {
+      "name": "Marowak",
+      "level": 15,
+      "health": 350,
+      "attack": 40,
+      "type": "Ground"
+    },
+    {
+      "name": "Rhyhorn",
+      "level": 8,
+      "health": 250,
+      "attack": 30,
+      "type": "Ground"
+    },
+    {
+      "name": "Rhydon",
+      "level": 18,
+      "health": 450,
+      "attack": 50,
+      "type": "Ground"
+    },
+    {
+      "name": "Geodude",
+      "level": 4,
+      "health": 140,
+      "attack": 20,
+      "type": "Ground"
+    },
+    {
+      "name": "Graveler",
+      "level": 10,
+      "health": 280,
+      "attack": 35,
+      "type": "Ground"
+    },
+    {
+      "name": "Golem",
+      "level": 20,
+      "health": 420,
+      "attack": 50,
+      "type": "Ground"
+    },
+    {
+      "name": "Squirtle",
+      "level": 5,
+      "health": 150,
+      "attack": 25,
+      "type": "Water"
+    },
+    {
+      "name": "Wartortle",
+      "level": 10,
+      "health": 250,
+      "attack": 35,
+      "type": "Water"
+    },
+    {
+      "name": "Blastoise",
+      "level": 20,
+      "health": 400,
+      "attack": 50,
+      "type": "Water"
+    },
+    {
+      "name": "Psyduck",
+      "level": 4,
+      "health": 130,
+      "attack": 20,
+      "type": "Water"
+    },
+    {
+      "name": "Golduck",
+      "level": 15,
+      "health": 350,
+      "attack": 45,
+      "type": "Water"
+    },
+    {
+      "name": "Poliwag",
+      "level": 3,
+      "health": 100,
+      "attack": 15,
+      "type": "Water"
+    },
+    {
+      "name": "Poliwhirl",
+      "level": 8,
+      "health": 220,
+      "attack": 30,
+      "type": "Water"
+    },
+    {
+      "name": "Poliwrath",
+      "level": 18,
+      "health": 400,
+      "attack": 50,
+      "type": "Water"
+    },
+    {
+      "name": "Tentacool",
+      "level": 5,
+      "health": 150,
+      "attack": 20,
+      "type": "Water"
+    },
+    {
+      "name": "Tentacruel",
+      "level": 15,
+      "health": 350,
+      "attack": 45,
+      "type": "Water"
+    },
+    {
+      "name": "Seel",
+      "level": 6,
+      "health": 160,
+      "attack": 25,
+      "type": "Water"
+    },
+    {
+      "name": "Dewgong",
+      "level": 16,
+      "health": 380,
+      "attack": 50,
+      "type": "Water"
+    },
+    {
+      "name": "Shellder",
+      "level": 4,
+      "health": 120,
+      "attack": 20,
+      "type": "Water"
+    },
+    {
+      "name": "Cloyster",
+      "level": 18,
+      "health": 420,
+      "attack": 55,
+      "type": "Water"
+    },
+    {
+      "name": "Onix",
+      "level": 12,
+      "health": 300,
+      "attack": 35,
+      "type": "Rock"
+    },
+    {
+      "name": "Kabuto",
+      "level": 8,
+      "health": 250,
+      "attack": 30,
+      "type": "Rock"
+    },
+    {
+      "name": "Kabutops",
+      "level": 18,
+      "health": 400,
+      "attack": 50,
+      "type": "Rock"
+    },
+    {
+      "name": "Omanyte",
+      "level": 7,
+      "health": 230,
+      "attack": 28,
+      "type": "Rock"
+    },
+    {
+      "name": "Omastar",
+      "level": 17,
+      "health": 410,
+      "attack": 52,
+      "type": "Rock"
+    },
+    {
+      "name": "Aerodactyl",
+      "level": 20,
+      "health": 450,
+      "attack": 60,
+      "type": "Rock"
+    },
+    {
+      "name": "Geodude",
+      "level": 4,
+      "health": 140,
+      "attack": 20,
+      "type": "Rock"
+    },
+    {
+      "name": "Graveler",
+      "level": 10,
+      "health": 280,
+      "attack": 35,
+      "type": "Rock"
+    },
+    {
+      "name": "Golem",
+      "level": 20,
+      "health": 420,
+      "attack": 50,
+      "type": "Rock"
+    },
+    {
+      "name": "Rhyhorn",
+      "level": 8,
+      "health": 250,
+      "attack": 30,
+      "type": "Rock"
+    },
+    {
+      "name": "Rhydon",
+      "level": 18,
+      "health": 450,
+      "attack": 50,
+      "type": "Rock"
+    },
+    {
+      "name": "Sudowoodo",
+      "level": 15,
+      "health": 350,
+      "attack": 45,
+      "type": "Rock"
+    }
+  ]
+}
