@@ -1,0 +1,416 @@
+[
+  {
+    "Exp": 0,
+    "hasAttacked": false,
+    "Name": "Bulbasaur",
+    "Level": 5,
+    "Health": 150,
+    "Attack": 25,
+    "Type": "Grass"
+  },
+  {
+    "Exp": 0,
+    "hasAttacked": false,
+    "Name": "Ivysaur",
+    "Level": 10,
+    "Health": 250,
+    "Attack": 35,
+    "Type": "Grass"
+  },
+  {
+    "Exp": 0,
+    "hasAttacked": false,
+    "Name": "Venusaur",
+    "Level": 20,
+    "Health": 400,
+    "Attack": 50,
+    "Type": "Grass"
+  },
+  {
+    "Exp": 0,
+    "hasAttacked": false,
+    "Name": "Oddish",
+    "Level": 3,
+    "Health": 100,
+    "Attack": 15,
+    "Type": "Grass"
+  },
+  {
+    "Exp": 0,
+    "hasAttacked": false,
+    "Name": "Gloom",
+    "Level": 8,
+    "Health": 200,
+    "Attack": 25,
+    "Type": "Grass"
+  },
+  {
+    "Exp": 0,
+    "hasAttacked": false,
+    "Name": "Vileplume",
+    "Level": 15,
+    "Health": 350,
+    "Attack": 40,
+    "Type": "Grass"
+  },
+  {
+    "Exp": 0,
+    "hasAttacked": false,
+    "Name": "Bellsprout",
+    "Level": 4,
+    "Health": 120,
+    "Attack": 20,
+    "Type": "Grass"
+  },
+  {
+    "Exp": 0,
+    "hasAttacked": false,
+    "Name": "Weepinbell",
+    "Level": 9,
+    "Health": 220,
+    "Attack": 30,
+    "Type": "Grass"
+  },
+  {
+    "Exp": 0,
+    "hasAttacked": false,
+    "Name": "Victreebel",
+    "Level": 18,
+    "Health": 380,
+    "Attack": 45,
+    "Type": "Grass"
+  },
+  {
+    "Exp": 0,
+    "hasAttacked": false,
+    "Name": "Sandshrew",
+    "Level": 6,
+    "Health": 180,
+    "Attack": 20,
+    "Type": "Ground"
+  },
+  {
+    "Exp": 0,
+    "hasAttacked": false,
+    "Name": "Sandslash",
+    "Level": 12,
+    "Health": 300,
+    "Attack": 40,
+    "Type": "Ground"
+  },
+  {
+    "Exp": 0,
+    "hasAttacked": false,
+    "Name": "Diglett",
+    "Level": 3,
+    "Health": 100,
+    "Attack": 15,
+    "Type": "Ground"
+  },
+  {
+    "Exp": 0,
+    "hasAttacked": false,
+    "Name": "Dugtrio",
+    "Level": 10,
+    "Health": 250,
+    "Attack": 35,
+    "Type": "Ground"
+  },
+  {
+    "Exp": 0,
+    "hasAttacked": false,
+    "Name": "Cubone",
+    "Level": 5,
+    "Health": 160,
+    "Attack": 20,
+    "Type": "Ground"
+  },
+  {
+    "Exp": 0,
+    "hasAttacked": false,
+    "Name": "Marowak",
+    "Level": 15,
+    "Health": 350,
+    "Attack": 40,
+    "Type": "Ground"
+  },
+  {
+    "Exp": 0,
+    "hasAttacked": false,
+    "Name": "Rhyhorn",
+    "Level": 8,
+    "Health": 250,
+    "Attack": 30,
+    "Type": "Ground"
+  },
+  {
+    "Exp": 0,
+    "hasAttacked": false,
+    "Name": "Rhydon",
+    "Level": 18,
+    "Health": 450,
+    "Attack": 50,
+    "Type": "Ground"
+  },
+  {
+    "Exp": 0,
+    "hasAttacked": false,
+    "Name": "Geodude",
+    "Level": 4,
+    "Health": 140,
+    "Attack": 20,
+    "Type": "Ground"
+  },
+  {
+    "Exp": 0,
+    "hasAttacked": false,
+    "Name": "Graveler",
+    "Level": 10,
+    "Health": 280,
+    "Attack": 35,
+    "Type": "Ground"
+  },
+  {
+    "Exp": 0,
+    "hasAttacked": false,
+    "Name": "Golem",
+    "Level": 20,
+    "Health": 420,
+    "Attack": 50,
+    "Type": "Ground"
+  },
+  {
+    "Exp": 0,
+    "hasAttacked": false,
+    "Name": "Squirtle",
+    "Level": 5,
+    "Health": 150,
+    "Attack": 25,
+    "Type": "Water"
+  },
+  {
+    "Exp": 0,
+    "hasAttacked": false,
+    "Name": "Wartortle",
+    "Level": 10,
+    "Health": 250,
+    "Attack": 35,
+    "Type": "Water"
+  },
+  {
+    "Exp": 0,
+    "hasAttacked": false,
+    "Name": "Blastoise",
+    "Level": 20,
+    "Health": 400,
+    "Attack": 50,
+    "Type": "Water"
+  },
+  {
+    "Exp": 0,
+    "hasAttacked": false,
+    "Name": "Psyduck",
+    "Level": 4,
+    "Health": 130,
+    "Attack": 20,
+    "Type": "Water"
+  },
+  {
+    "Exp": 0,
+    "hasAttacked": false,
+    "Name": "Golduck",
+    "Level": 15,
+    "Health": 350,
+    "Attack": 45,
+    "Type": "Water"
+  },
+  {
+    "Exp": 0,
+    "hasAttacked": false,
+    "Name": "Poliwag",
+    "Level": 3,
+    "Health": 100,
+    "Attack": 15,
+    "Type": "Water"
+  },
+  {
+    "Exp": 0,
+    "hasAttacked": false,
+    "Name": "Poliwhirl",
+    "Level": 8,
+    "Health": 220,
+    "Attack": 30,
+    "Type": "Water"
+  },
+  {
+    "Exp": 0,
+    "hasAttacked": false,
+    "Name": "Poliwrath",
+    "Level": 18,
+    "Health": 400,
+    "Attack": 50,
+    "Type": "Water"
+  },
+  {
+    "Exp": 0,
+    "hasAttacked": false,
+    "Name": "Tentacool",
+    "Level": 5,
+    "Health": 150,
+    "Attack": 20,
+    "Type": "Water"
+  },
+  {
+    "Exp": 0,
+    "hasAttacked": false,
+    "Name": "Tentacruel",
+    "Level": 15,
+    "Health": 350,
+    "Attack": 45,
+    "Type": "Water"
+  },
+  {
+    "Exp": 0,
+    "hasAttacked": false,
+    "Name": "Seel",
+    "Level": 6,
+    "Health": 160,
+    "Attack": 25,
+    "Type": "Water"
+  },
+  {
+    "Exp": 0,
+    "hasAttacked": false,
+    "Name": "Dewgong",
+    "Level": 16,
+    "Health": 380,
+    "Attack": 50,
+    "Type": "Water"
+  },
+  {
+    "Exp": 0,
+    "hasAttacked": false,
+    "Name": "Shellder",
+    "Level": 4,
+    "Health": 120,
+    "Attack": 20,
+    "Type": "Water"
+  },
+  {
+    "Exp": 0,
+    "hasAttacked": false,
+    "Name": "Cloyster",
+    "Level": 18,
+    "Health": 420,
+    "Attack": 55,
+    "Type": "Water"
+  },
+  {
+    "Exp": 0,
+    "hasAttacked": false,
+    "Name": "Onix",
+    "Level": 12,
+    "Health": 300,
+    "Attack": 35,
+    "Type": "Rock"
+  },
+  {
+    "Exp": 0,
+    "hasAttacked": false,
+    "Name": "Kabuto",
+    "Level": 8,
+    "Health": 250,
+    "Attack": 30,
+    "Type": "Rock"
+  },
+  {
+    "Exp": 0,
+    "hasAttacked": false,
+    "Name": "Kabutops",
+    "Level": 18,
+    "Health": 400,
+    "Attack": 50,
+    "Type": "Rock"
+  },
+  {
+    "Exp": 0,
+    "hasAttacked": false,
+    "Name": "Omanyte",
+    "Level": 7,
+    "Health": 230,
+    "Attack": 28,
+    "Type": "Rock"
+  },
+  {
+    "Exp": 0,
+    "hasAttacked": false,
+    "Name": "Omastar",
+    "Level": 17,
+    "Health": 410,
+    "Attack": 52,
+    "Type": "Rock"
+  },
+  {
+    "Exp": 0,
+    "hasAttacked": false,
+    "Name": "Aerodactyl",
+    "Level": 20,
+    "Health": 450,
+    "Attack": 60,
+    "Type": "Rock"
+  },
+  {
+    "Exp": 0,
+    "hasAttacked": false,
+    "Name": "Geodude",
+    "Level": 4,
+    "Health": 140,
+    "Attack": 20,
+    "Type": "Rock"
+  },
+  {
+    "Exp": 0,
+    "hasAttacked": false,
+    "Name": "Graveler",
+    "Level": 10,
+    "Health": 280,
+    "Attack": 35,
+    "Type": "Rock"
+  },
+  {
+    "Exp": 0,
+    "hasAttacked": false,
+    "Name": "Golem",
+    "Level": 20,
+    "Health": 420,
+    "Attack": 50,
+    "Type": "Rock"
+  },
+  {
+    "Exp": 0,
+    "hasAttacked": false,
+    "Name": "Rhyhorn",
+    "Level": 8,
+    "Health": 250,
+    "Attack": 30,
+    "Type": "Rock"
+  },
+  {
+    "Exp": 0,
+    "hasAttacked": false,
+    "Name": "Rhydon",
+    "Level": 18,
+    "Health": 450,
+    "Attack": 50,
+    "Type": "Rock"
+  },
+  {
+    "Exp": 0,
+    "hasAttacked": false,
+    "Name": "Sudowoodo",
+    "Level": 15,
+    "Health": 350,
+    "Attack": 45,
+    "Type": "Rock"
+  }
+]

@@ -2,20 +2,20 @@
 
 public class Pokemon
 {
-    private int Exp;
-    private bool hasAttacked;
-    private int Health;
-    private int Level;
-    private readonly string Name;
-    private readonly int Strength;
-    private readonly string Type;
+    public int Exp { get; private set; }
+    public bool hasAttacked { get; private set; }
+    public string Name { get; private set; }
+    public int Level { get; private set; }
+    public int Health { get; private set; }
+    public int Attack { get; private set; }
+    public string Type { get; private set; }
 
-    public Pokemon(string name, int level, int health, int strength, string type)
+    public Pokemon(string name, int level, int health, int attack, string type)
     {
         Name = name;
         Level = level;
         Health = health;
-        Strength = strength;
+        Attack = attack;
         Type = type;
     }
 
@@ -46,7 +46,7 @@ public class Pokemon
 
     public int GetStrength()
     {
-        return Strength;
+        return Attack;
     }
 
     public void Attacked(Pokemon oponent)
@@ -80,7 +80,7 @@ public class Pokemon
     }
     public void PrintInfo()
     {
-        Console.WriteLine($"Name: {Name}, Level: {Level}, Strength: {Strength}");
+        Console.WriteLine($"Name: {Name}, Level: {Level}, Strength: {Attack}");
     }
     public void PrintInfo(int ID)
     {

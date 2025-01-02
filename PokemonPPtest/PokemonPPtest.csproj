@@ -17,6 +17,7 @@
 
   <ItemGroup>
     <None Remove="Pokemons.json" />
+    <None Remove="SaveFile.json" />
   </ItemGroup>
 
   <ItemGroup>
@@ -25,6 +26,9 @@
 
   <ItemGroup>
     <Content Include="Pokemons.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SaveFile.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
   </ItemGroup>
